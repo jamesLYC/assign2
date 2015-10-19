@@ -27,14 +27,14 @@ PImage end;
 
 void setup () {
   size(640, 480) ;
-   bg2 = loadImage("bg2.png");
-   bg1 = loadImage("bg1.png");
-   enemy = loadImage("enemy.png");
-   fighter = loadImage("fighter.png");
-   hp = loadImage("hp.png");
-   treasure = loadImage("treasure.png");
-   start = loadImage("start2.png");
-   end = loadImage("end2.png");
+   bg2 = loadImage("img/bg2.png");
+   bg1 = loadImage("img/bg1.png");
+   enemy = loadImage("img/enemy.png");
+   fighter = loadImage("img/fighter.png");
+   hp = loadImage("img/hp.png");
+   treasure = loadImage("img/treasure.png");
+   start = loadImage("img/start2.png");
+   end = loadImage("img/end2.png");
    GameState = false;
    GameOver = false;
    heal = false;

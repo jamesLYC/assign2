@@ -89,6 +89,7 @@ void draw() {
     enemyy = 240;
     l = 38;
     m = 0;
+    n = -640;
    }
   if(enemyx-fighterx<=61&&enemyx-fighterx>=-61&&enemyy-fightery<=61&&enemyy-fightery>=-61){
     enemyx = 0;

@@ -14,7 +14,6 @@ boolean upPressed;
 boolean downPressed;
 boolean leftPressed;
 boolean rightPressed;
-boolean heal;
 PImage bg1;
 PImage bg2;
 PImage enemy;
@@ -23,6 +22,8 @@ PImage hp;
 PImage treasure;
 PImage start;
 PImage end;
+PImage start2;
+PImage end2;
 
 
 void setup () {
@@ -35,9 +36,11 @@ void setup () {
    treasure = loadImage("img/treasure.png");
    start = loadImage("img/start2.png");
    end = loadImage("img/end2.png");
+     start2 = loadImage("img/start1.png");
+   end2 = loadImage("img/end1.png");
    GameState = false;
    GameOver = false;
-   heal = false;
+   
 }
 
 void draw() {
@@ -53,6 +56,37 @@ void draw() {
     image(start,0,0);
     enemyx = 0;
   }
+  m++;
+  n++;
+  while(m>640){
+    m = -640;
+  }
+  while(n>640){
+    n = -640;
+  }
+     if(GameOver == true){
+    image(end,0,0);
+    fighterx = 589;
+    fightery = 240;
+    enemyx = 0;
+    enemyy = 240;
+    l = 38;
+    m = 0;
+    n = -640;
+   }
+  if(GameState == false && mouseX > 200 && mouseX < 440 && mouseY >360&& mouseY <420){
+   image(start2,0,0);
+   if(mousePressed){
+   GameState = true;
+   }
+  }
+  if(GameOver == true && mouseX > 200 && mouseX < 440 && mouseY >300&& mouseY <360){
+   image(end2,0,0);
+   if(mousePressed){
+   GameOver = false;
+   }
+  }
+  
 
   if(upPressed){
     fightery -= speed;;
@@ -66,7 +100,7 @@ void draw() {
   if(rightPressed){
     fighterx += speed;
   }
-  if (fighterx > width){
+  if (fighterx > width ){
     fighterx = 0;
   }
   if (fighterx < 0){
@@ -81,16 +115,7 @@ void draw() {
   if(m > 640){
     m = 0;
   }
-   if(GameOver == true){
-    image(end,0,0);
-    fighterx = 589;
-    fightery = 240;
-    enemyx = 0;
-    enemyy = 240;
-    l = 38;
-    m = 0;
-    n = -640;
-   }
+
   if(enemyx-fighterx<=61&&enemyx-fighterx>=-61&&enemyy-fightery<=61&&enemyy-fightery>=-61){
     enemyx = 0;
     enemyy = 240;
@@ -107,14 +132,7 @@ void draw() {
   if(l <= 0){
   GameOver = true;
   }
-  m++;
-  n++;
-  while(m>640){
-    m = -640;
-  }
-  while(n>640){
-    n = -640;
-  }
+  
   enemyx+=4;
   if(fightery > enemyy){
   enemyy += 3.5;
@@ -136,8 +154,8 @@ void draw() {
   }
 }
 void keyPressed(){
-  GameState = true;
-  GameOver = false;
+  
+  
   if (key == CODED){
     switch(keyCode){
       case UP:
@@ -173,4 +191,3 @@ void keyReleased(){
       }
       }
 }
-
